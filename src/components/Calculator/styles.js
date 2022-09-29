@@ -11,31 +11,54 @@ export const Container = styled.div`
   gap: 0.8rem;
 
   margin: 0 auto;
-  padding-top: 70px;
-  
+  padding-top: 20px;
+
   .container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     flex-direction: row;
-    width: 50%;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
     border: gray solid 1px;
     border-radius: 10px;
+
+    @media (min-width: 1024px) {
+      width: 50%;
+    }
+
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
   }
 
   h1 {
     font-weight: bold;
-    margin: 10px auto
+    margin: 0 auto;
+    text-align: center;
+    color: black;
+
+    @media (min-width: 1024px) {
+      padding-top: 70px;
+    }
   }
 
   form {
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
   }
 
   input {
@@ -61,8 +84,6 @@ export const Container = styled.div`
     font-size: 15px;
     font-weight: bold;
     text-align: center;
-  
-    margin: 10px auto;
   }
 
   button {

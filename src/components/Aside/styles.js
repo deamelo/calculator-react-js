@@ -10,6 +10,8 @@ export const ContainerAside = styled.div`
 
   h2 {
     font-size: 25px;
+    margin-top: 15px;
+    color: black;
   }
 
   .total {
