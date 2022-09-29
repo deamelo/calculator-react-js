@@ -1,5 +1,5 @@
 import Api from "../../Api/Index"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -13,7 +13,7 @@ const Calculator = () => {
   const [loading, setLoading] = useState("")
 
   const schema = yup.object().shape({
-    amount:yup.number().moreThan(1000, "Valor deve ser maior ou igual a 1000").positive("Informe um valor maior que 0").required("Informe o valor da venda"),
+    amount:yup.number().min(1000, "Valor deve ser maior ou igual a 1000").positive("Informe um valor maior ou igual a 1000").required("Informe o valor da venda que seja maior ou igual a 1000"),
     installments:yup.number().max(12, "Máximo de parcelas permitido é 12").positive("Informe um número maior que 0").required("Informe o número de parcelas"),
     mdr:yup.number().positive("Informe um percentual maior que 0").required("Informe o percentual de MDR")
   })
@@ -47,6 +47,10 @@ const Calculator = () => {
     })
   }
 
+  useEffect(() => {
+
+  },[totals] )
+
   return (
     <Container>
       <h1>Simule sua Antecipação</h1>
@@ -74,8 +78,8 @@ const Calculator = () => {
         </form>
         <Aside totals={totals}/>
       </div>
-      <span>{error.message}</span>
       <span>{loading}</span>
+      <span>{error.message}</span>
     </Container>
   )
 }

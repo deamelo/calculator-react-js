@@ -3,21 +3,26 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 90vw;
   max-width: 1220px;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.8rem;
 
-  margin: 20px auto;
+  margin: 0 auto;
+  padding-top: 70px;
   
   .container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
-    width: 60%;
+    width: 50%;
     margin: 0 auto;
+    padding: 20px;
+    border: gray solid 1px;
+    border-radius: 10px;
   }
 
   h1 {
