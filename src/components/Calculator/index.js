@@ -1,4 +1,4 @@
-import Api from "../../Api/Index"
+import Api from "../../Api"
 import { useState, useEffect } from "react"
 import * as yup from 'yup';
 import { useForm } from "react-hook-form";
@@ -49,7 +49,7 @@ const Calculator = () => {
 
   useEffect(() => {
 
-  },[totals] )
+  },[totals])
 
   return (
     <Container>
@@ -76,7 +76,7 @@ const Calculator = () => {
           <span>{errors.mdr?.message}</span>
           <button type="submit">Calcular</button>
         </form>
-        <Aside totals={totals}/>
+        <Aside totals={totals} data-testid="response-calc"/>
       </div>
       <span>{loading}</span>
       <span>{error.message}</span>
