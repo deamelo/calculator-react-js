@@ -27,9 +27,9 @@ describe("Calculator component", () => {
         
 		const buttonElement = screen.getByText("Calcular");
 
-		fireEvent.change(amountField, { target: { value: "15000" }})
-		fireEvent.change(installmentsField, { target: { value: "3" }})
-    fireEvent.change(mdrField, { target: { value: "4" }})
+		fireEvent.change(amountField, { target: { value: 15000 }})
+		fireEvent.change(installmentsField, { target: { value: 3 }})
+    fireEvent.change(mdrField, { target: { value: 4 }})
 
 		fireEvent.click(buttonElement)
 
