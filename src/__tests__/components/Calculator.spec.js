@@ -12,31 +12,24 @@ describe("Calculator component", () => {
 
     render(<Calculator/>);
 
-    apiMock.onPost("").replyOnce(200, [
-      {
-        amount: 15000,
-        installments: 3,
-        mdr: 4,
-        days: [1, 15, 30, 90]
-      }
-    ])
-		
+    apiMock.onPost("").replyOnce(200, {})
+
 		const amountField = screen.getByPlaceholderText("Valor mínimo de 1000");
 		const installmentsField = screen.getByPlaceholderText("Máximo de 12 parcelas");
     const mdrField = screen.getByPlaceholderText("Digite o percentual de MDR");
-        
+
 		const buttonElement = screen.getByText("Calcular");
 
-		fireEvent.change(amountField, { target: { value: 15000 }})
-		fireEvent.change(installmentsField, { target: { value: 3 }})
-    fireEvent.change(mdrField, { target: { value: 4 }})
+		fireEvent.change(amountField, { target: { value: "15000" }})
+		fireEvent.change(installmentsField, { target: { value: "3" }})
+    fireEvent.change(mdrField, { target: { value: "4" }})
 
 		fireEvent.click(buttonElement)
 
 		await waitFor(() => {
-			expect(amountField).toHaveValue(15000);
-			expect(installmentsField).toHaveValue(3);
-      expect(mdrField).toHaveValue(4);
+      expect(amountField).toHaveValue("15000");
+			expect(installmentsField).toHaveValue("3");
+      expect(mdrField).toHaveValue("4");
 		})
 	})
 })
